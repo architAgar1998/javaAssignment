@@ -1,33 +1,32 @@
 
 public class ThirdLargest {
-	static void thirdLargest(int arr[], int arr_size) {
-		if (arr_size < 3) {
-			System.out.printf(" Invalid Input ");
-			return;
-		}
-
-
-		int first = arr[0];
-		for (int i = 1; i < arr_size; i++)
-			if (arr[i] > first)
-				first = arr[i];
-
-		int second = Integer.MIN_VALUE;
-		for (int i = 0; i < arr_size; i++)
-			if (arr[i] > second && arr[i] < first)
-				second = arr[i];
-
-		int third = Integer.MIN_VALUE;
-		for (int i = 0; i < arr_size; i++)
-			if (arr[i] > third && arr[i] < second)
-				third = arr[i];
-
-		System.out.printf("The third Largest " + "element is %d\n", third);
-	}
-
 	public static void main(String[] args) {
-		int arr[] = { 12, 13, 1, 1, 34, 10};
-		int n = arr.length;
-		thirdLargest(arr, n);
+		int arr[] = new int[] { 1, 2, 2, 4, 5, 2, 2 };
+		int temp;
+		int thirdLargest = 0 ;
+		int temp1 = 2;
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = i + 1; j < arr.length; j++) {
+				if (arr[i] > arr[j]) {
+					temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+		
+		if(arr[temp1] == arr[temp1 + 1]) {
+			for (int i = temp1 + 1; i < arr.length; i++) {
+				if(arr[temp1] != arr[i]) {
+					thirdLargest = arr[i];
+					break;
+				}
+			}
+		} else {
+			thirdLargest = arr[temp1];
+		}
+		
+		System.out.println("Third Largest -> "+thirdLargest);
+		
 	}
 }

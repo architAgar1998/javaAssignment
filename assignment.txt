@@ -1,0 +1,317 @@
+Q1. What is the main difference between Array and Collection?
+Ans. Array :- 
+	(i) Array is used to store homogeneous type of data.
+   (ii) Array can store all type of data means primitive and non primitive.
+  (iii) Array is fixed in size.
+   (iv) Array does not have any predefined methods to process the data.
+   
+   Collection :-
+    (i) Collection is used to store heterogeneous type of data.
+   (ii) Collection can store only non primitive type of data.
+  (iii) Collection is dynamic in size.
+   (iv) Collection have list of methods to process the data.
+   
+Q2.  Explain various interfaces used in Collection framework?   
+Ans. There are so many interfaces used in Collection framework.
+	(i) Iterable
+   (ii) Collection
+  (iii) List    
+   (iv) Set
+    (v) Queue
+   (vi) Deque
+  (vii) SortedSet
+  
+Q3. What is the difference between ArrayList and Vector?
+Ans. ArrayList :-
+	(i) ArrayList is non synchronized Collection class.
+   (ii) Incremental Capacity of the array is -
+		newCapacity = (oldCapacity * 3)/2 + 1.
+		
+	Vector :-
+	(i) Vector is synchronized Collection class.
+   (ii) Incremental Capacity of the array is -
+		newCapacity = (oldCapacity * 2).
+
+Q4. What is the difference between ArrayList and LinkedList?		
+Ans. ArrayList :-
+	(i) ArrayList internally uses a dynamic array to store the elements.
+   (ii) Manipulation with ArrayList is slow because it internally uses an array. 
+        If any element is removed from the array, all the bits are shifted in memory.
+  (iii)	An ArrayList class can act as a list only because it implements List only.
+   (iv) ArrayList is better for storing and accessing data.
+   
+     LinkedList :-
+    (i) LinkedList internally uses a doubly linked list to store the elements.
+   (ii) Manipulation with LinkedList is faster than ArrayList because it uses a doubly linked list, 
+	    so no bit shifting is required in memory.
+  (iii) LinkedList class can act as a list and queue both because it implements List and Deque interfaces.
+   (iv) LinkedList is better for manipulating data.
+  
+Q5. What is the difference between Iterator and ListIterator?
+Ans. ListIterator :-
+	(i) ListIterator allows to iterate the list objects in both directions 
+		i.e forward as well as backward direction using previous() and next() method.
+   (ii) ListIterator can be used to traverse List object only.
+  (iii) ListIterator can modify the list  during iteration using add(E e) , remove() or set(E e).
+  
+	 Iterator :- 
+	(i) Iterator can be used to  iterate the list,map and set object in one direction i.e forward.
+   (ii) Iterator can be used to traverse Map, List and Set implemented objects.
+  (iii) Iterator can not add the element during traversal but they can remove the element from the 
+		underlying collection during the iteration as they only consist of remove() method. 
+		There is no add(E e) and set(E e) method in Iterator.
+
+Q6. What is the difference between List and Set?
+Ans. List :-
+	(i) The list provides positional access or index of the elements in the collection.
+   (ii) Implementation of List are ArrayList, LinkedList, Vector and Stack.
+  (iii) We can store the duplicate elements in the list.
+   (iv) List maintains insertion order of elements in the collection.
+    (v) The list can store multiple null elements.
+	
+	Set :-
+	(i) Set doesn't provide positional access or index to the elements in the collection.
+   (ii) Implementation of a set interface is HashSet, LinkedHashSet and TreeSet.
+  (iii) We can’t store duplicate elements in Set.
+   (iv) Set doesn’t maintain any order.
+    (v) Set can store only one null element.
+
+Q7. What is the difference between HashSet and TreeSet?	
+Ans. HashSet :- 
+	(i) HashSet directly implements Set interface.
+   (ii) It does not follow any order.
+  (iii) It allow one null element to store.
+   (iv) It does not allow duplicate elements.
+    (v) HashSet internally uses HashTable to store the elements.
+   
+   TreeSet :- 
+    (i) TreeSet directly implements SortedSet interface.
+   (ii) It follows natural ordering i.e ascending order.
+  (iii) It doesn’t allow null element to store.
+   (iv) It does not allow duplicate elements.
+    (v) TreeSet internally uses Tree Data Structure to store the elements.
+	
+Q8. What is the difference between HashSet and HashMap?	
+Ans. HashSet :- 
+	(i) HashSet implements Set interface.
+   (ii) In HashSet, we store objects.
+  (iii) It does not allow duplicate values.
+   (iv) It can contain a single null value.
+    (v) HashSet uses the add() method to add elements in the HashSet.
+	
+	HashMap :-
+	(i) HashMap implements Map interface.
+   (ii) In HashMap we store a key-value pair.
+  (iii) It does not allow duplicate keys, but duplicate values are allowed.
+   (iv) It can contain a single null key and multiple null values.
+    (v) HashMap uses the put() method to add the elements in the HashMap.
+	
+Q9. What is the difference between HashMap and Hashtable?
+Ans. HashMap :- 
+	(i) HashMap is non synchronized means it is not thread safe.
+   (ii) HashMap allows one null key and multiple null values.
+  (iii) HashMap is a new class introduced in JDK 1.2.
+   (iv) HashMap is traversed by Iterator.
+   
+   HashTable :-
+	(i) HashTable is synchronized means it is thread safe.
+   (ii) Hashtable doesn't allow any null key or value.
+  (iii) Hashtable is a legacy class.
+   (iv) Hashtable is traversed by Enumerator and Iterator.
+   
+Q10. What is the difference between Comparable and Comparator?   
+Ans. Comparable :-
+	(i) Comparable provides a single sorting sequence.
+		In other words, we can sort the collection on the basis of a single element
+		such as id, name, and price.
+   (ii) Comparable provides compareTo() method to sort elements.
+  (iii) Comparable is present in java.lang package.
+   (iv) We can sort the list elements of Comparable type by Collections.sort(List) method.
+   
+     Comparator :-
+	(i) The Comparator provides multiple sorting sequences. In other words,
+		we can sort the collection on the basis of multiple elements
+		such as id, name, and price etc.
+   (ii) Comparator provides compare() method to sort elements.
+  (iii) Comparator is present in the java.util package.
+   (iv) We can sort the list elements of Comparator type by Collections.sort(List, Comparator) method.
+   
+Q11. How to synchronize List, Set and Map elements?
+Ans. We can synchronize List, Set and Map by using these methods.
+	(i) Collections.synchronizedList(list);
+   (ii) Collections.synchronizedSet(set);
+  (iii) Collections.synchronizedMap(map);
+  
+Q12. What do you understand by fail-fast?
+Ans. Fail-Fast iterators immediately throw ConcurrentModificationException if there is structural modification
+	 of the collection. Structural modification means adding,removing or updating
+	 any element from collection while a thread is iterating over that collection.  
+	 
+Q13. What is the difference between Array and ArrayList?
+Ans. Array :- 
+	 (i) Array is static in size.
+    (ii) An array is a fixed-length data structure.
+   (iii) It is mandatory to provide the size of an array while initializing it directly or indirectly.
+	(iv) An array can store both objects and primitives type.
+	 (v) We use for loop or for each loop to iterate over an array.
+	 
+	ArrayList :- 
+	 (i) ArrayList is dynamic in size.
+	(ii) ArrayList is a variable-length data structure. It can be resized itself when needed.
+   (iii) We can create an instance of ArrayList without specifying its size. Java creates ArrayList of default size.
+    (iv) We cannot store primitive type in ArrayList. It automatically converts primitive type to object.
+     (v) We use an iterator to iterate over ArrayList.
+	 
+Q14. How to remove duplicates from ArrayList?
+Ans.  import java.util.ArrayList;
+      import java.util.HashSet;
+
+      public class DuplicateElementsRemoveFromArrayList {
+	
+	      public static void main(String[] args) {
+		
+		        ArrayList<String> nameList = new ArrayList<String>();
+		        nameList.add("Aashi");
+				nameList.add("Aayushi");
+				nameList.add("Anu");
+				nameList.add("Aashi");
+				nameList.add("Anu");
+		
+				System.out.println(nameList);
+		
+				HashSet<String> nameSet = new HashSet<String>();
+				nameSet.addAll(nameList);
+		
+				System.out.println(nameSet);
+	}
+	
+}
+	 
+Q15. Write a Java program of swap two elements in an array list.
+Ans. import java.util.ArrayList;
+	 import java.util.Collections;
+
+		public class SwapElementInArrayList {
+			public static void main(String[] args) {
+				ArrayList<String> list = new ArrayList<String>();
+				list.add("Archit");
+				list.add("Vikas");
+
+				System.out.println(list);
+
+				Collections.swap(list, 0, 1);
+		
+				System.out.println(list);
+
+	        }
+        }
+
+Q16. Write a Java program to copy one array list into another.
+Ans. import java.util.*;
+	 public class CopyElementsOfArrayListToArrayListExample {
+		public static void main (String[] args) {
+			List<String> zoo = new ArrayList<String>();
+			zoo.add("Zebra");
+			zoo.add("Lion");
+			zoo.add("Tiger");
+			List<String> list = new ArrayList<String>();
+			list.add("Hello");
+			list.add("Hi");
+			list.add("World");
+//  	    Collections.copy(list,zoo); // copying the ArrayList zoo to the ArrayList list
+			list.addAll(zoo);	 // having both list elements
+			System.out.println(list);
+   }
+}
+
+Q17. Write a Java program to iterate through all elements in a linked list starting at the specified position.
+Ans. import java.util.LinkedList;
+	 import java.util.Scanner;
+
+	public class IterateLinkedListThroughSpecifiedIndex {
+	
+		public static void main(String[] args) {
+			int index = 0;
+			Scanner scanner = new Scanner(System.in);
+			LinkedList<String> list = new LinkedList<String>();
+			list.add("archit");
+			list.add("vikas");
+			list.add("naman");
+			list.add("rahul");
+			list.add("tushar");
+		
+			System.out.println("Enter the index where from you want to iterate ");
+			index = scanner.nextInt();
+			scanner.close();
+			
+			for (int i = index; i < list.size(); i++) {
+				System.out.println(list.get(i));
+			}
+		}
+	
+	}
+
+Q18. Write a Java program to retrieve but does not remove, the first element of a linked list?
+Ans. import java.util.LinkedList;
+
+	 public class IterationWithOutRemoveFirstElement {
+		public static void main(String[] args) {
+			LinkedList<String> list = new LinkedList<String>();
+			list.add("archit");
+			list.add("vikas");
+			list.add("naman");
+			list.add("rahul");
+			list.add("tushar");
+		
+			System.out.println("First Element of Linked List :- " + list.get(0));
+		
+			System.out.println(list);
+		
+		}
+	}
+
+Q19. Write a Java program to get the first and last occurrence of the specified elements in a linked list?
+Ans. import java.util.LinkedList;
+
+	public class FirstLastOccurrence {
+	
+		public static void main(String[] args) {
+			LinkedList<String> list = new LinkedList<String>();
+			list.add("archit");
+			list.add("vikas");
+			list.add("naman");
+			list.add("rahul");
+			list.add("tushar");
+		
+			System.out.println("First Element of Linked List :- " + list.getFirst());
+			System.out.println("Last Element of Linked List :- " + list.getLast());	
+		}
+	}
+	
+Q20. Write a Java program to convert a linked list to array list?
+Ans. import java.util.ArrayList;
+	 import java.util.LinkedList;
+
+	 public class LinkedListToArrayList {
+	
+		public static void main(String[] args) {
+			LinkedList<String> lList = new LinkedList<String>();
+			lList.add("archit");
+			lList.add("vikas");
+			lList.add("naman");
+			lList.add("rahul");
+			
+			ArrayList<String> aList = new ArrayList<String>(lList);
+			
+			System.out.println(aList);
+		
+		}
+	
+	}
+	
+
+
+
+
+
+	 
